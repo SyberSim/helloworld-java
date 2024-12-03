@@ -32,6 +32,6 @@ jobs:
                key : ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml')}}
 
          - name: Build Project with Maven
-           run: mvn clean pakage -DskipTests
+           run: mvn clean package -DskipTests
            env:
               MAVEN_OPTS: "-Dmaven.repo.local=${{ github.workspace }}/.m2/repository"
