@@ -23,8 +23,15 @@ jobs:
            uses: actions/setup-java@v4.5.0
            with:
               java-version: 17
-              distribution: zulu
+              distribution: temurin
+
+         -  name: Cache
+            uses: actions/cache@v4.1.2
+            with:
+               path: ${{ github.workspace /.m2/repository
+               key : ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml')}}
 
          - name: Build Project with Maven
            run: mvn clean pakage -DskipTests
-   
+           env:
+              MAVEN_OPTS: "-Dmaven.repo.local=${{ github.workspace }}/.m2/repository"
