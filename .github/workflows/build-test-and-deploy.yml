@@ -22,6 +22,9 @@ jobs:
          - name: Setup Java JDK
            uses: actions/setup-java@4.5.0
            with:
+              java-version: 17
               distribution: zulu
-         - run: mvn clean pakage -DskipTests --name helloworld.jar
+
+         - name: Build Project with Maven
+           run: mvn clean pakage -DskipTests
    
