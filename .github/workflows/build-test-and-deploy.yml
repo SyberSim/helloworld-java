@@ -28,7 +28,7 @@ jobs:
          -  name: Cache
             uses: actions/cache@v4.1.2
             with:
-               path: ${{ github.workspace /.m2/repository
+               path: ${{ github.workspace /.m2/repository }}
                key : ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml')}}
 
          - name: Build Project with Maven
